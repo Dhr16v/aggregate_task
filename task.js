@@ -53,12 +53,6 @@
     }
    ]
 
-
-
-
-
-
-
 //4.Retrieve tasks along with user details (from Users collection).
 
 [
@@ -71,3 +65,6 @@
       }
     }
   ]
+
+//5.Get all comments related to each task from a Comments array field
+
