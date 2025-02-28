@@ -31,7 +31,27 @@
   ]
 
 // 3.Calculate the average time taken to complete tasks for each user
-
+[
+    {
+      $match: {
+        status:"Completed"
+      }
+    },{
+      $project: {
+        userId:1,
+        timeTaken:{
+          $subtract:['$completedAt','$createdAt']
+        }
+      }
+    },{
+      $group: {
+        _id: "$userId",
+        avgTime: {
+          $avg: "$timeTaken"
+        }
+      }
+    }
+   ]
 
 
 
