@@ -32,3 +32,22 @@
 
 // 3.Calculate the average time taken to complete tasks for each user
 
+
+
+
+
+
+
+
+//4.Retrieve tasks along with user details (from Users collection).
+
+[
+    {
+      $lookup: {
+        from: "user_task",
+        localField: "userId",
+        foreignField: "_id",
+        as: "userresult"
+      }
+    }
+  ]
