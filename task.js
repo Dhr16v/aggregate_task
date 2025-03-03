@@ -68,3 +68,27 @@
 
 //5.Get all comments related to each task from a Comments array field
 
+[
+  {
+    $project: {
+      title:1,
+      comments:1
+    }
+  }
+]
+
+//6.Find how many overdue tasks exist in the system
+
+[
+  {
+    $match: {
+      $and:[
+        {
+          status:{$ne:"Completed"}
+        },{
+          dueDate:{$lt:new ISODate()}
+        }
+      ]
+    }
+  }
+ ]
